@@ -1,0 +1,94 @@
+body {
+    margin: 10% 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeeeee;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.box {
+    width: 50vw;
+    background-color: #fff;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+  font-size: 20px;
+  height: 3.5rem;
+  justify-content: space-between;
+}
+
+.your {
+  width: 99%;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #cccccc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.add-input {
+    width: 99%;
+    height: 3rem;
+    /*display: flex;
+    align-items: center;
+    justify-content: space-between;*/
+    border: none;
+    font-size: 18px;
+    font-style: italic;
+  }
+
+.input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  flex-direction: column-reverse;
+}
+
+.input input {
+    margin-right: 1rem;
+}
+
+.clear {
+  width: 100%;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #7d7d7d;
+  font-size: 18px;
+}
+
+.li-input {
+    width: 99%;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
+.your .add {
+    background-color: #fff;
+    border: none !important;
+}
+
+.top i {
+    margin: 0 0.7rem 0 0;
+}
