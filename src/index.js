@@ -6,7 +6,7 @@ const tasks = [
   { description: 'Download the resource', completed: false, index: 2 },
   { description: 'Clean your room', completed: true, index: 3 },
   { description: 'Study', completed: false, index: 4 },
-  { description: 'Finish the app, completed: true, index: 5 },
+  { description: 'Finish the app', completed: true, index: 5 },
 ];
 
 const taskList = document.querySelector('.input');

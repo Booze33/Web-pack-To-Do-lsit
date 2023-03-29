@@ -16,7 +16,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   font-size: 20px;
   height: 3.5rem;
   justify-content: space-between;
@@ -28,7 +28,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -48,7 +48,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -74,7 +74,7 @@ body {
   height: 3.5rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   border-top: none;
   border-left: none;
   border-right: none;
