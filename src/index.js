@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import _ from 'lodash';
 import './style.css';
 
@@ -14,18 +15,18 @@ taskList.innerHTML = '';
 
 const renderTasks = () => {
   tasks.forEach((task) => {
-      const listItem = document.createElement('li');
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.checked = task.completed;
+    const listItem = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = task.completed;
 
-      listItem.appendChild(checkbox);
-      listItem.className = 'li-input';
-      listItem.appendChild(document.createTextNode(task.description));
+    listItem.appendChild(checkbox);
+    listItem.className = 'li-input';
+    listItem.appendChild(document.createTextNode(task.description));
 
-      taskList.appendChild(listItem);
-  })
-}
+    taskList.appendChild(listItem);
+  });
+};
 renderTasks();
 
 const clearAll = document.querySelector('.button');
