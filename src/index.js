@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import _ from 'lodash';
+
 import './style.css';
 
 const tasks = [
@@ -17,13 +16,20 @@ const renderTasks = () => {
   tasks.forEach((task) => {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
+    const Text = document.createElement('h1');
+    const menuImg = document.createElement('div');
+    Text.className = 'text';
+    Text.appendChild(document.createTextNode(task.description))
+    Text.style.width = '20rem';
+    menuImg.className = 'menu';
+    menuImg.innerHTML = `<i class="fa fa-ellipsis-v" aria-hidden="true"></i>`;
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
 
     listItem.appendChild(checkbox);
     listItem.className = 'li-input';
-    listItem.appendChild(document.createTextNode(task.description));
-
+    listItem.appendChild(Text);
+    listItem.appendChild(menuImg);
     taskList.appendChild(listItem);
   });
 };

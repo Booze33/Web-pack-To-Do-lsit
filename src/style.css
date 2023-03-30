@@ -88,3 +88,8 @@ body {
 .top i {
   margin: 0 0.7rem 0 0;
 }
+
+.menu {
+  position: relative;
+  left: 42%;
+}
