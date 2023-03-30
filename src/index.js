@@ -1,4 +1,3 @@
-
 import './style.css';
 
 const tasks = [
@@ -19,10 +18,10 @@ const renderTasks = () => {
     const Text = document.createElement('h1');
     const menuImg = document.createElement('div');
     Text.className = 'text';
-    Text.appendChild(document.createTextNode(task.description))
+    Text.appendChild(document.createTextNode(task.description));
     Text.style.width = '20rem';
     menuImg.className = 'menu';
-    menuImg.innerHTML = `<i class="fa fa-ellipsis-v" aria-hidden="true"></i>`;
+    menuImg.innerHTML = '<i class="fa fa-ellipsis-v" aria-hidden="true"></i>';
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
 
