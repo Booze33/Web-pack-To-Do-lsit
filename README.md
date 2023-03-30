@@ -29,9 +29,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome books <a name="about-project"></a>
+# 📖 To Do List <a name="about-project"></a>
 
-> In this project, We build a basic website that allows users to add/remove books from a list. We achieve that by using JavaScript objects and arrays. We dynamically modify the DOM and add basic events.
+> In this project, We build a basic website that allows users add list and check it off once it is ccomplete
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -51,14 +51,14 @@
 ### Key Features <a name="key-features"></a>
 
 > Here are some key features of the application :
-- **Add book**
-- **Remove book**
-- **Display books**
+- **Add list**
+- **Check it**
+- **Display List**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 💻 Awesome books <a name="vgs-presentation"></a>
+## 💻 To Do List <a name="vgs-presentation"></a>
 
 > Here you can see my presentation :
 - [N/A]()
