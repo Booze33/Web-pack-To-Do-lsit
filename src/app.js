@@ -1,6 +1,6 @@
 let tasks = [];
 
-const setItems = () => {
+export const setItems = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
@@ -16,7 +16,7 @@ export const renderTasks = () => {
   taskList.innerHTML = '';
   getItems();
 
-  tasks.forEach((task) => {
+  tasks.forEach((task, id) => {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
     const inputText = document.createElement('input');
@@ -65,6 +65,16 @@ export const renderTasks = () => {
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
 
+    const ChangeStats = (id, stats) => {
+      tasks[id].completed = stats;
+      setItems();
+      renderTasks();
+    };
+
+    checkbox.addEventListener('change', (e) => {
+      ChangeStats(id, e.target.checked);
+    });
+
     listItem.appendChild(checkbox);
     listItem.className = 'li-input';
     listItem.appendChild(inputText);
@@ -89,3 +99,17 @@ export const addList = () => {
     InputText.value = '';
   }
 };
+
+const clearAll = document.querySelector('.button');
+const removeButton = document.createElement('button');
+removeButton.textContent = 'Clear all completed';
+removeButton.className = 'clear';
+clearAll.appendChild(removeButton);
+
+const all = () => {
+  tasks = tasks.filter((task) => !task.completed);
+  setItems();
+  renderTasks();
+};
+
+removeButton.addEventListener('click', all);
