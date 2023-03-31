@@ -11,7 +11,6 @@ const getItems = () => {
   }
 };
 
-
 export const renderTasks = () => {
   const taskList = document.querySelector('.input');
   taskList.innerHTML = '';
