@@ -9,11 +9,3 @@ addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addList();
 });
-
-// Remove function
-
-const clearAll = document.querySelector('.button');
-const removeButton = document.createElement('button');
-removeButton.textContent = 'Clear all completed';
-removeButton.className = 'clear';
-clearAll.appendChild(removeButton);
