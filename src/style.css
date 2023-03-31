@@ -91,5 +91,33 @@ body {
 
 .menu {
   position: relative;
-  left: 42%;
+  left: 37%;
+}
+
+.section {
+  justify-content: space-between;
+}
+
+.text {
+  border: none;
+  font-size: 16px;
+  height: 2rem;
+}
+
+.fa-ellipsis-v.is-active {
+  transform: scale(1);
+}
+
+.fa-ellipsis-v {
+  position: fixed;
+  z-index: 99;
+  margin-left: -1px;
+}
+
+.white {
+  z-index: 1000;
+  background-color: #9c9a9a;
+  width: 2rem;
+  border: 3.5px solid black;
+  margin-left: -0.1rem;
 }
