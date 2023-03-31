@@ -91,5 +91,15 @@ body {
 
 .menu {
   position: relative;
-  left: 42%;
+  left: 37%;
+}
+
+.section {
+  justify-content: space-between;
+}
+
+.text {
+  border: none;
+  font-size: 16px;
+  height: 2rem;
 }

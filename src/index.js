@@ -1,38 +1,80 @@
 import './style.css';
+import { addList, removeList } from './app.js';
 
-const tasks = [
-  { description: 'Work out', completed: false, index: 1 },
-  { description: 'Download the resource', completed: false, index: 2 },
-  { description: 'Clean your room', completed: true, index: 3 },
-  { description: 'Study', completed: false, index: 4 },
-  { description: 'Finish the app', completed: true, index: 5 },
-];
+export let tasks = [];
 
-const taskList = document.querySelector('.input');
-taskList.innerHTML = '';
+export const setItems = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
 
-const renderTasks = () => {
+export const getItems = () => {
+  const data = JSON.parse(localStorage.getItem('tasks'));
+  if (data) {
+    tasks = data;
+  }
+};
+
+export const renderTasks = () => {
+  const taskList = document.querySelector('.input');
+  taskList.innerHTML = '';
+  getItems();
+
   tasks.forEach((task) => {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
-    const Text = document.createElement('h1');
+    const inputText = document.createElement('input');
     const menuImg = document.createElement('div');
-    Text.className = 'text';
-    Text.appendChild(document.createTextNode(task.description));
-    Text.style.width = '20rem';
+    inputText.className = 'text';
+    inputText.type = 'text';
+    inputText.value = task.description;
+    inputText.addEventListener('blur', (e) => {
+      task.description = e.target.value;
+      setItems();
+    });
+    inputText.style.width = '20rem';
     menuImg.className = 'menu';
     menuImg.innerHTML = '<i class="fa fa-ellipsis-v" aria-hidden="true"></i>';
+    menuImg.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = document.createElement('div');
+      const change = document.createElement('button');
+      const clickImg = document.querySelector('.fa-ellipsis-v');
+
+      change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+      change.addEventListener('click', () => {
+        removeList(tasks.indexOf(task));
+      });
+      
+
+      clickImg.style.display = 'none';
+      section.className = 'section';
+      section.appendChild(change);
+      menuImg.appendChild(section);
+    });
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
 
     listItem.appendChild(checkbox);
     listItem.className = 'li-input';
-    listItem.appendChild(Text);
+    listItem.appendChild(inputText);
     listItem.appendChild(menuImg);
     taskList.appendChild(listItem);
   });
 };
 renderTasks();
+
+// Add function
+
+
+const addBtn = document.querySelector('.add');
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addList();
+  
+});
+
+// Remove function
+
 
 const clearAll = document.querySelector('.button');
 const removeButton = document.createElement('button');
