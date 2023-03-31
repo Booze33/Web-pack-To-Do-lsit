@@ -1,6 +1,4 @@
-
-
-export let tasks = [];
+let tasks = [];
 
 export const setItems = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -19,7 +17,7 @@ export const renderTasks = () => {
   taskList.innerHTML = '';
   getItems();
 
- tasks.forEach((task, id) => {
+  tasks.forEach((task, id) => {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
     const inputText = document.createElement('input');
@@ -36,55 +34,55 @@ export const renderTasks = () => {
     menuImg.innerHTML = '<i class="fa fa-ellipsis-v" aria-hidden="true"></i>';
     menuImg.addEventListener('click', (e) => {
       e.preventDefault();
-        const section = document.createElement('div');
-        const change = document.createElement('button');
-        change.className = 'white';
-        const clickImg = document.querySelector('.fa-ellipsis-v');
+      const section = document.createElement('div');
+      const change = document.createElement('button');
+      change.className = 'white';
+      const clickImg = document.querySelector('.fa-ellipsis-v');
 
-    const updateList = (index) => {
-      for (let i = index; i < tasks.length; i += 1) {
-        tasks[i].index = i + 1;
-      }
-    };
+      const updateList = (index) => {
+        for (let i = index; i < tasks.length; i += 1) {
+          tasks[i].index = i + 1;
+        }
+      };
 
-    const removeList = (index) => {
-      tasks.splice(index, 1);
-      updateList(index);
-      setItems();
-      renderTasks();
-    };
-
-    change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
-    change.addEventListener('click', () => {
-      removeList(tasks.indexOf(task));
-    });
-
-    menuImg.classList.add('is-active');
-    section.className = 'section';
-    section.appendChild(change);
-    menuImg.appendChild(section);
-      });
-  
-      checkbox.type = 'checkbox';
-      checkbox.checked = task.completed;
-
-      const ChangeStats = (id, stats) => {
-        tasks[id].completed = stats;
+      const removeList = (index) => {
+        tasks.splice(index, 1);
+        updateList(index);
         setItems();
         renderTasks();
       };
 
-      checkbox.addEventListener('change', (e) => {
-        ChangeStats(id, e.target.checked);
+      change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+      change.addEventListener('click', () => {
+        removeList(tasks.indexOf(task));
       });
-  
-      listItem.appendChild(checkbox);
-      listItem.className = 'li-input';
-      listItem.appendChild(inputText);
-      listItem.appendChild(menuImg);
-      taskList.appendChild(listItem);
+
+      clickImg.classList.add('is-active');
+      section.className = 'section';
+      section.appendChild(change);
+      menuImg.appendChild(section);
     });
-  };
+
+    checkbox.type = 'checkbox';
+    checkbox.checked = task.completed;
+
+    const ChangeStats = (id, stats) => {
+      tasks[id].completed = stats;
+      setItems();
+      renderTasks();
+    };
+
+    checkbox.addEventListener('change', (e) => {
+      ChangeStats(id, e.target.checked);
+    });
+
+    listItem.appendChild(checkbox);
+    listItem.className = 'li-input';
+    listItem.appendChild(inputText);
+    listItem.appendChild(menuImg);
+    taskList.appendChild(listItem);
+  });
+};
 
 export const addList = () => {
   const InputText = document.querySelector('.add-input');
@@ -110,7 +108,7 @@ removeButton.className = 'clear';
 clearAll.appendChild(removeButton);
 
 const all = () => {
-tasks = tasks.filter((task) => !task.completed);
+  tasks = tasks.filter((task) => !task.completed);
   setItems();
   renderTasks();
 };
