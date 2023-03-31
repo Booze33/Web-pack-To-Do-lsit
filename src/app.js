@@ -37,11 +37,15 @@ export const renderTasks = () => {
       const change = document.createElement('button');
       const clickImg = document.querySelector('.fa-ellipsis-v');
 
+      const removeList = (index) => {
+        tasks.splice(index, 1);
+        setItems();
+        renderTasks();
+      };
       change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
       change.addEventListener('click', () => {
         removeList(tasks.indexOf(task));
       });
-      
 
       clickImg.style.display = 'none';
       section.className = 'section';
@@ -74,10 +78,4 @@ export const addList = () => {
     renderTasks();
     InputText.value = '';
   }
-};
-
-const removeList = (index) => {
-  tasks.splice(index, 1);
-  setItems();
-  renderTasks();
 };

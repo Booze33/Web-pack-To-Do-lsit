@@ -8,7 +8,6 @@ const addBtn = document.querySelector('.add');
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addList();
-  
 });
 
 // Remove function
