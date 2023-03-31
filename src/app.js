@@ -35,23 +35,33 @@ export const renderTasks = () => {
       e.preventDefault();
       const section = document.createElement('div');
       const change = document.createElement('button');
+      change.className = 'white';
       const clickImg = document.querySelector('.fa-ellipsis-v');
+
+      const updateList = (index) => {
+        for (let i = index; i < tasks.length; i++) {
+          tasks[i].index = i + 1;
+        }
+      };
 
       const removeList = (index) => {
         tasks.splice(index, 1);
+        updateList(index);
         setItems();
         renderTasks();
       };
+
       change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
       change.addEventListener('click', () => {
         removeList(tasks.indexOf(task));
       });
 
-      clickImg.style.display = 'none';
+      clickImg.classList.add('is-active');
       section.className = 'section';
       section.appendChild(change);
       menuImg.appendChild(section);
     });
+
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
 
