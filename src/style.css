@@ -111,9 +111,13 @@ body {
 .fa-ellipsis-v {
   position: fixed;
   z-index: 99;
+  margin-left: -1px;
 }
 
 .white {
   z-index: 1000;
-  background-color: #fff;
+  background-color: #9c9a9a;
+  width: 2rem;
+  border: 3.5px solid black;
+  margin-left: -0.1rem;
 }

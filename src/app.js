@@ -39,7 +39,7 @@ export const renderTasks = () => {
       const clickImg = document.querySelector('.fa-ellipsis-v');
 
       const updateList = (index) => {
-        for (let i = index; i < tasks.length; i + 1) {
+        for (let i = index; i < tasks.length; i++) {
           tasks[i].index = i + 1;
         }
       };
