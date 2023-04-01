@@ -86,7 +86,7 @@ Example commands:
 
 ```sh
   cd my-folder
-  git clone https://github.com/alex1779/awesome-books.git
+  git clone https://github.com/Booze33/Web-pack-To-Do-lsit.git
 ```
 
 -
