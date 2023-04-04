@@ -28,39 +28,38 @@ export const renderTasks = () => {
       task.description = e.target.value;
       setItems();
     });
+
     inputText.style.width = '20rem';
     menuImg.className = 'menu';
-    menuImg.innerHTML = '<i class="fa fa-ellipsis-v" aria-hidden="true"></i>';
+    menuImg.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
     menuImg.addEventListener('click', (e) => {
       e.preventDefault();
-      const section = document.createElement('div');
-      const change = document.createElement('button');
-      change.className = 'white';
-      const clickImg = document.querySelector('.fa-ellipsis-v');
-
-      const updateList = (index) => {
-        for (let i = index; i < tasks.length; i += 1) {
-          tasks[i].index = i + 1;
-        }
-      };
-
-      const removeList = (index) => {
-        tasks.splice(index, 1);
-        updateList(index);
-        setItems();
-        renderTasks();
-      };
-
-      change.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
-      change.addEventListener('click', () => {
-        removeList(tasks.indexOf(task));
-      });
-
-      clickImg.classList.add('is-active');
-      section.className = 'section';
-      section.appendChild(change);
-      menuImg.appendChild(section);
+      removeList(tasks.indexOf(task));
     });
+
+    const updateList = (index) => {
+      for (let i = index; i < tasks.length; i += 1) {
+        tasks[i].index = i + 1;
+      }
+    };
+
+    const removeList = (index) => {
+      tasks.splice(index, 1);
+      updateList(index);
+      setItems();
+      renderTasks();
+    };
+
+    const refresh = document.querySelector('.fa-refresh');
+    if (tasks.length >= 1) {
+      refresh.addEventListener('click', (e) => {
+        tasks.splice(0, tasks.length);
+
+        updateList(e);
+        removeList();
+        setItems();
+      })
+    }
 
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
